@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Shuffle from './Shuffle';
+import Card from './Card';
 import './App.css';
 
 class App extends Component {
@@ -35,9 +36,9 @@ class App extends Component {
   }
 
   cardClickHandeler = () => {
-      let audio = this.state.audio.toneOpen;
+      let audio = new Audio(this.state.audio.toneOpen);
       audio.play();
-      audio.volume = 0.5;
+
       this.setState((state, props) => ({
           selected: props
       }))
@@ -50,29 +51,30 @@ class App extends Component {
 
   shuffleHandeler = () => {
 
-      let random = this.getRandomInt(this.state.allCards.characters.length)
       let char_card = null;
       let tool_card = null;
       let places_card = null;
 
-      if(random > 0){
-          char_card = this.allCards.characters[random];
+      let random_char_card = this.getRandomInt(this.state.allCards.characters.length)
+
+
+      if(random_char_card > 0){
+          char_card = this.allCards.characters[random_char_card];
       }
 
+      let random_tool_card = this.getRandomInt(this.state.allCards.tools.length)
 
-      let random2 = this.getRandomInt(this.state.allCards.tools.length)
-      if(random2 > 0){
-          tool_card = this.allCards.tools[random];
+      if(random_tool_card > 0){
+          tool_card = this.allCards.tools[random_tool_card];
       }
 
+      let random_places_card = this.getRandomInt(this.state.allCards.places.length)
 
-      let random3 = this.getRandomInt(this.state.allCards.places.length)
-      if(random3 > 0){
-          places_card = this.allCards.places[random];
+      if(random_places_card > 0){
+          places_card = this.allCards.places[random_places_card];
       }
 
-
-      let cards = [char_card,tool_card,places_card]
+      let cards = [char_card,tool_card,places_card].filter(x => x)
 
       this.setState({
           cards: cards
@@ -80,9 +82,8 @@ class App extends Component {
   }
 
   modalOpenHandeler = () => {
-      let audio = this.state.audio.tonePopup;
+      let audio = new Audio(this.state.audio.tonePopup);
       audio.play();
-      audio.volume = 0.5;
       this.setState({
           showModal: true
       })
@@ -90,8 +91,7 @@ class App extends Component {
 
   modalCloseHandeler = () => {
       let audio = this.state.audio.toneClose;
-      audio.play();
-      audio.volume = 0.5;
+
       this.setState({
           showModal: false
       })
@@ -109,13 +109,9 @@ class App extends Component {
 
           <div className="cardrow">
 
-
+            <Card randChar = { 1 } cardClickHandeler = { this.cardClickHandeler } />
 
           </div>
-
-
-
-
 
         </div>
 

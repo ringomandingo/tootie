@@ -1,17 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Card extends Component {
-    constructor(props) {
-        super(props);
-    }
-    componentDidMount() {
-
-    }
-
-    render() {
+let Card = (props) => {
 
         return (
-            <div className={"card character char" + props.randChar.id + " " + props.style } onClick={props.cardClickHandeler()}>
+            <div className={"card character char" + props.randChar.id } onClick={props.cardClickHandeler}>
 
                     <div className="cardint">
                         <div className="cardfront">
@@ -33,6 +25,5 @@ class Card extends Component {
             </div>
         );
     }
-}
 
 export default Card;
