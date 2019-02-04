@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Glegoo');
+
+/*
+font-family: 'Permanent Marker', cursive;
+font-family: 'Glegoo', serif;
+*/
+body {
+  margin:0px auto;
+  color:#333;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1em;
+  font-family: 'Glegoo', serif;
+}
+h1 {
+  line-height: 1.5em;
+  font-family: 'Permanent Marker', cursive;
+  font-size: calc(14px + 10 * ((100vw - 320px) / 680));
+}
+h2 {
+  line-height: 1.5em;
+  font-family: 'Permanent Marker', cursive;
+  font-size: calc(12px + 15 * ((100vw - 320px) / 680));
+}
+.shufflebtncont {
+  margin:20px auto;
+  text-align: center;
+  perspective: 200px;
+}
+.button {
+  cursor: pointer;
+  height:30px;
+  width:170px;
+  display: inline-block;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) translateZ(0px) translateY(0px);
+  transform-origin: top center;
+  transition:all ease .5s;
+}
+.shufflebtncont:hover .button {
+  transform:rotateX(90deg) translateZ(-2px) translateY(-25px);
+}
+.buttontext1,
+.buttontext2 {
+  height: 30px;
+  padding:7px 11px;
+  box-sizing: border-box;
+}
+.buttontext1 {
+  color:#fff;
+  background-color: #0accc3;
+  transform: rotateX(0deg) translateZ(0px);
+}
+.buttontext2 {
+  color:#fff;
+  background-color: #cc0a87;
+  position: absolute;
+  top:100%;
+  left:0px;
+  width:100%;
+  transform: rotateX(-90deg) translateZ(0px);
+  transform-origin: top center;
+}
+.cardwrap {
+  position: relative;
+  max-width: 960px;
+  margin: 0px auto;
+}
+.loadingcont {
+  position: absolute;
+  top:0px;
+  left:0px;
+  opacity: 1;
+  width:100%;
+  height:100%;
+  background-color: #fff;
+  z-index: 3;
+  animation:loadingfade 1.5s .7s forwards;
+}
+.loadingtext {
+  position: absolute;
+  top:50%;
+  left:50%;
+  text-align: center;
+  transform: translate(-50%, -50%) scale(1);
+  animation:loadingfade 2s forwards, loadingscale 2s forwards;
+}
+@keyframes loadingfade {
+  0% {
+    opacity: 1;
+    pointer-events:auto;
+  }
+  70% {
+    opacity: 1;
+    pointer-events:auto;
+  }
+  100% {
+    opacity: 0;
+    pointer-events:none;
+  }
+}
+@keyframes loadingscale {
+  0% {
+    transform:translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform:translate(-50%, -50%) scale(1.11);
+  }
+}
+.loadingtext i {
+  font-size: 11px;
+}
+.cardrow {
+  display: flex;
+  padding:20px 0px;
+  max-width:960px;
+  margin:0px auto;
+}
+.card {
+  padding:10px;
+  flex:1 0 33.3333%;
+  box-sizing: border-box;
+  perspective: 1000px;
+}
+.cardint {
+  text-align: center;
+  border-radius: 7px;
+  position: relative;
+  box-shadow:0px 0px 10px #c2c2c2;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: all ease .5s;
+}
+.active .cardint {
+  box-shadow: 0px 0px 10px 2px #939292;
+  transform: rotateY(180deg);
+}
+.card:hover .cardint,
+.card.active:hover .cardint {
+  box-shadow: 0px 0px 10px 2px #cc0a8770;
+}
+.app:focus .cardint {
+  box-shadow: 0px 0px 10px 2px #f00!important;
+}
+.cardfront,
+.cardback {
+  position: absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  border-radius: 7px;
+  opacity: 1;
+  cursor: pointer;
+  background-color: #ffffff;
+  transition: all ease .7s .15s;
+}
+.cardfront {
+  pointer-events: none;
+}
+.active .cardfront {
+  pointer-events: none;
+}
+.cardback {
+  z-index: -1;
+}
+.active .cardback {
+  pointer-events: none;
+}
+.cardtype {
+  position: absolute;
+  top:50%;
+  left:0px;
+  width:100%;
+  margin:0px;
+  opacity: 1;
+  text-align: center;
+  transform: translateY(-50%) scale(1);
+  transition:all ease .25s;
+}
+.cardfront {
+  position: relative;
+  z-index:1;
+  transform: rotateY(180deg);
+}
+.flipcolor {
+  position: absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  overflow: hidden;
+  border-radius: 7px;
+}
+.flipcolor:after {
+  content:"";
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%) scale(.7);
+  width:100%;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  background-color: #0b9adf;
+  opacity: 0;
+  transition:all ease .45s .2s;
+}
+.active .flipcolor:after {
+  opacity: 1;
+  background-color: #fff;
+  transform: translate(-50%, -50%) scale(2);
+}
+.cardimg {
+  padding:10px 10px 0px;
+  opacity: 0;
+  transform: scale(.6);
+  position: relative;
+  transition:all ease .35s .5s;
+}
+.active .cardimg {
+  opacity: 1;
+  transform: scale(1);
+}
+.cardimg img {
+  width:100%;
+}
+.cardtitle {
+  margin: 0px 0px 5px;
+  opacity: 0;
+  transform: scale(.6);
+  transition:all ease .35s .65s;
+}
+.active .cardtitle {
+  opacity: 1;
+  transform: scale(1);
+}
+.moreinfo {
+  color:#333;
+  font-family: 'Glegoo', serif;
+  font-size: calc(8px + 3 * ((100vw - 320px) / 680));
+  position: relative;
+  margin:0px 0px 10px;
+  opacity: 0;
+  transform: translateY(7px);
+  transition:all ease .7s .9s;
+}
+.active .moreinfo {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.cardinfolink {
+  position: absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+.active .cardinfolink {
+  pointer-events: auto;
+}
+.cardinfocont {
+  position: fixed;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  opacity: 0;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #05cebc80;
+  box-shadow:inset 0px 0px 10px #f00;
+  pointer-events: none;
+  transition:all ease .5s .5s;
+}
+.cardinfocont.active {
+  opacity: 1;
+  pointer-events:auto;
+  box-shadow:inset 0px 0px 30px #333;
+  transition:all ease .5s 0s;
+}
+.cardinfoint {
+  position: absolute;
+  top:50%;
+  left:50%;
+  padding:10px 20px;
+  border-radius: 7px;
+  background-color: #fff;
+  width:calc(100% - 30px);
+  max-width:960px;
+  z-index: 2;
+  opacity: 0;
+  box-shadow: 0px 0px 20px #33333320;
+  min-height:calc(100% - 90px);
+  transform: translate(-50%, -50%) scale(.7);
+  box-sizing: border-box;
+  transition:all ease .35s .35s;
+}
+.active .cardinfoint {
+  opacity: 1;
+  box-shadow: 0px 0px 10px #33333370;
+  transform: translate(-50%, -50%) scale(1);
+  transition:all ease .35s .2s;
+}
+.cardinfocont h1,
+.cardinfocont p {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.cardinfocont h1 {
+  margin-top: 0px;
+  transition:all ease .25s .11s
+}
+.cardinfocont p {
+  line-height: 2em;
+  transition: all ease .25s 0s;
+}
+.cardinfocont.active h1 {
+  opacity: 1;
+  line-height: 1.5em;
+  transform: translateY(0px);
+  transition:all ease .35s .2s;
+}
+.cardinfocont.active p {
+  opacity: 1;
+  line-height: 1.5em;
+  transform: translateY(0px);
+  transition:all ease .5s .35s;
+}
+.closepopup {
+  position: absolute;
+  top:10px;
+  right:10px;
+  padding:5px;
+  cursor: pointer;
+  z-index: 1;
+}
+.cardinfoint .closepopup {
+  transform: translateY(20px);
+  opacity: 0;
+  transition:all ease-in .2s .17s;
+}
+.active .cardinfoint .closepopup {
+  transform: translateY(0px);
+  opacity: 1;
+  transition:all ease .35s .5s;
+}
+.closepopup.bigclose {
+  position: absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+}

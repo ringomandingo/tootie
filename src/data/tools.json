@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "title": "Band-Aid",
+      "content": "Self-care, self-love, bandage, wounds, cover-up, quick-fix, &bdquo;just rip it off,&bdquo; pain is only temporary, a call to fix what is ailing you.",
+      "image": "./images/tool-bandaid.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Blood",
+      "content": "Pain, release, self-sacrifice, commitment, pact, deep connection to the body, circulation, pulse, life force, life itself, violence, destruction, &bdquo;caught red-handed,&bdquo; womanhood, motherhood, family lineage, murder, THE PART OF THE CREATIVE PROCESS WHERE GETTING INVOLVED IS MESSY BUT NECESSARY, chords, connection, deep bond.",
+      "image": "./images/tool-blood.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Breath",
+      "content": "Space, relaxation, zen, meditation, deep inner peace, contentment, life force, victory, &bdquo;the means is the end,&bdquo; process, life, cycle, motivation, release, all-seeing, deep awareness, understanding, connection, dance of life, victory, arrival, enlightenment, love, deep acceptance, &bdquo;sitting with something,&bdquo; everything happening in its own time, at its own pace, in its own way. *BREATH IS A CARD THAT SIGNIFIES A MOST MASTERFUL STATE, INNER VICTORY AND ARRIVAL*",
+      "image": "./images/tool-breath.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Broken Heart",
+      "content": "THE REALITY OF ALL LOVE, duality, pain, love, end to a chapter, new beginning, facing an inner truth, acceptance, facing your feelings, TRUTH, shadow self, reconciling pain, evidence of caring, reconciling karma.",
+      "image": "./images/tool-broken-heart.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Bulldozer",
+      "content": "CLEAR THE WAY, DEEP INNER STRENGTH, necessary destruction, construction, move, haul away, evidence of heavy burdens, major clearing of the old, one second it’s there- another it’s not, total removal.",
+      "image": "./images/tool-bulldozer.jpg"
+    }
+]
