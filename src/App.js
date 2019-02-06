@@ -3,15 +3,19 @@ import Shuffle from './Shuffle';
 import Card from './Card';
 import './App.css';
 
+import CharacterData from './data/characters.json'
+import ToolData from './data/tools.json'
+import PlacesData from './data/places.json'
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selected: null,
       allCards: {
-        characters: [],
-        tools: [],
-        places: []
+        characters: CharacterData,
+        tools: ToolData,
+        places: PlacesData
       },
       cards: [],
       showModal: false,
@@ -23,29 +27,10 @@ class App extends Component {
     };
   }
   componentDidMount() {
-  let cards = [];
-  let all_cards =  {
-      characters: [],
-      tools: [],
-      places: []
-      };
-
-      this.setState({
-          cards: cards, allCards: all_cards
-      });
+      this.shuffleHandeler()
   }
 
-  cardClickHandeler = () => {
-      let audio = new Audio(this.state.audio.toneOpen);
-      audio.play();
-
-      this.setState((state, props) => ({
-          selected: props
-      }))
-
-  }
-
-    getRandomInt = (max) => {
+  getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
@@ -59,19 +44,19 @@ class App extends Component {
 
 
       if(random_char_card > 0){
-          char_card = this.allCards.characters[random_char_card];
+          char_card = this.state.allCards.characters[random_char_card];
       }
 
       let random_tool_card = this.getRandomInt(this.state.allCards.tools.length)
 
       if(random_tool_card > 0){
-          tool_card = this.allCards.tools[random_tool_card];
+          tool_card = this.state.allCards.tools[random_tool_card];
       }
 
       let random_places_card = this.getRandomInt(this.state.allCards.places.length)
 
       if(random_places_card > 0){
-          places_card = this.allCards.places[random_places_card];
+          places_card = this.state.allCards.places[random_places_card];
       }
 
       let cards = [char_card,tool_card,places_card].filter(x => x)
@@ -97,19 +82,35 @@ class App extends Component {
       })
   }
 
+  cardClickHandeler = () => {
+        let audio = new Audio(this.state.audio.toneOpen);
+        audio.crossOrigin = 'anonymous';
+        audio.play();
+
+        this.setState((state, props) => ({
+            selected: props
+        }))
+
+    }
+
   render() {
 
     return (
 
       <div className="App">
 
-        <Shuffle shuffleHandeler = { this.shuffleHandeler }/>
+        <Shuffle shuffleHandeler = { this.shuffleHandeler } />
 
         <div className="cardwrap">
 
           <div className="cardrow">
 
-            <Card randChar = { 1 } cardClickHandeler = { this.cardClickHandeler } />
+              {
+                  this.state.cards.map(card => (
+
+                      <Card card = { card } cardClickHandeler = { this.cardClickHandeler } key = { card.name } />
+              ))
+              }
 
           </div>
 

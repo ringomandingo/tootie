@@ -1,6 +1,7 @@
 [
     {
       "id": 1,
+      "type": "Character",
       "title": "Angsty Teen",
       "content": "The part of creative process/self-expression where you must ACT OUT, volatility, uncontrollable emotion, adolescence, maturity, standing up for yourself, not having the best tools to do so, repression, battle, sexuality, raging hormones, reconciling authority, confusion, punk rock, growing into yourself, finding your way, shifting your prospective, crossing from one phase of life into another, living in the past.",
       "image": "./images/char-angsty-teen.jpg"
@@ -8,24 +9,28 @@
     {
       "id": 2,
       "title": "Baby Angel",
+      "type": "Character",
       "content": "Liberation, sweetness, angel-like, lightness, innocence, purity, Cupids, youth, sneaky, hovering above, birds-eye-view, watchful, guardians, intuition, MIRACLE, gift to the world.",
       "image": "./images/char-baby-angel.jpg"
     },
     {
       "id": 3,
       "title": "Demon",
+      "type": "Character",
       "content": "Shadow self, FEAR, inner or outer struggle, turmoil, darkness, facing difficulties, low vibrations, oppression, tragedy, trauma, a call to face something threatening, the ego.",
       "image": "./images/char-demon.jpg"
     },
     {
       "id": 4,
       "title": "Devotee",
+      "type": "Character",
       "content": "Faith, inner peace, honor, loyalty, a call to consider what is best for you to WORSHIP, ritual, daily-life practices, TOGETHERNESS, whole, unity.",
       "image": "./images/char-devotee.jpg"
     },
     {
       "id": 5,
       "title": "Dragon",
+      "type": "Character",
       "content": "SPEAK YOUR TRUTH, PERSONAL EMPOWERMENT, inner-strength, fiery, anger, rage, battle, threat, cold-blooded, HERO, uprising, fight, call to action, (do or don’t) tame the beast.",
       "image": "./images/char-dragon.jpg"
     }

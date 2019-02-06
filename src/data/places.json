@@ -2,30 +2,35 @@
     {
       "id": 1,
       "title": "Airplane",
+      "type": "Place",
       "content": "VENTURING TO NEW PLACES, in transit, taking flight, movement, Point A to Point B, travel, fleeing, trying new things, vacation, manhood, THE SCARY PART OF THE CREATIVE PROCESS WHERE YOU ARE TRYING THINGS YOU HAVE NEVER TRIED BEFORE.",
       "image": "./images/place-airplane.jpg"
     },
     {
       "id": 2,
       "title": "Bed",
+      "type": "Place",
       "content": "REST, putting things to rest, exploring sensuality, life-balance, getting in tune with basic life cycles, dreams, fatigue, illness, bedrest, taking care of yourself.",
       "image": "./images/place-bed.jpg"
     },
     {
       "id": 3,
       "title": "Cave",
+      "type": "Place",
       "content": "FINDING YOURSELF, CHILDHOOD INSECURITY, primal worship, basic shelter, protection, isolation, facing yourself, guard, hiding out, refuge, recluse, disconnected from society, ancient, damp, airless, dark, DIVING INTO THE SUBCONSCIOUS.",
       "image": "./images/place-cave.jpg"
     },
     {
       "id": 4,
       "title": "Circus",
+      "type": "Place",
       "content": "FACADE, NOT KNOWING WHAT TO MAKE OF THINGS OR WHERE THEY ARE GOING, PUTTING ON A SHOW, CHARADE, HONESTLY A SHIT SHOW, synchronicity, chaos, disorder, a lot going on a once, color, whimsy, divine orchestration, randomness, YOU ARE THE RINGMASTER, hectic, strange, twisted, A CALL TO EMBRACE WHAT IS HAPPENING AROUND YOU, show, stage, superficiality, entertainment, rare beauty.",
       "image": "./images/place-circus.jpg"
     },
     {
       "id": 5,
       "title": "Club",
+      "type": "Place",
       "content": "PLAY, A CALL TO SOCIALIZATION, groups of people, dance, celebration, mass movement, fun, social hierarchy, cliches, examine what's actually &bdquo;cool,&bdquo; social pressure, inclusion, human connection.",
       "image": "./images/place-club.jpg"
     }
