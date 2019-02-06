@@ -115,7 +115,7 @@ class App extends Component {
 
                   this.state.cards.map(card => (
 
-                      <Card card = { card } cardClickHandeler = { this.modalOpenHandeler } key = { card.name } />
+                      <Card card = { card } modalOpenHandeler = { this.modalOpenHandeler } key = { card.name } />
               ))
               }
 
