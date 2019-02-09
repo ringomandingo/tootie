@@ -77,9 +77,9 @@ class App extends Component {
       });
   }
 
-  modalOpenHandeler = () => {
-
+  modalOpenHandeler = (card) => {
       this.setState({
+          selected: card,
           showModal: true
       })
   }
@@ -101,8 +101,8 @@ class App extends Component {
         <Shuffle shuffleHandeler = { this.shuffleHandeler } />
 
           {(() => {
-              switch (this.state.showModal) {
-              case true:   return <Popup card = { this.card || {card:{title: "", content: ""}}} />;
+              switch (this.state.showModal && this.state.selected !== null) {
+              case true:   return <Popup card = { this.state.selected } />;
               default:      return null ;
               }
           })()}
@@ -113,9 +113,9 @@ class App extends Component {
 
               {
 
-                  this.state.cards.map(card => (
+                  this.state.cards.map((card,index) => (
 
-                      <Card card = { card } modalOpenHandeler = { this.modalOpenHandeler } key = { card.name } />
+                      <Card card = { card } modalOpenHandeler = { this.modalOpenHandeler } key = { index } />
               ))
               }
 
