@@ -3,7 +3,7 @@ import React from 'react';
 let Card = (props) => {
 
         return (
-            <div className={"card character char_" + props.card.name } onClick={props.modalOpenHandeler}>
+            <div className={"card " + props.card.type + " " + props.card.title } onClick={props.modalOpenHandeler}>
 
                     <div className="cardint">
                         <div className="cardfront">

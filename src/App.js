@@ -102,7 +102,7 @@ class App extends Component {
 
           {(() => {
               switch (this.state.showModal) {
-              case true:   return <Popup title = "test" content = "test"/>;
+              case true:   return <Popup card = { this.card || {card:{title: "", content: ""}}} />;
               default:      return null ;
               }
           })()}
