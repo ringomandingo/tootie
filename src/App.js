@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       selected: null,
-      allCards: {
+      deck: {
         characters: CharacterData,
         tools: ToolData,
         places: PlacesData
@@ -49,23 +49,23 @@ class App extends Component {
       let tool_card = null;
       let places_card = null;
 
-      let random_char_card = this.getRandomInt(this.state.allCards.characters.length)
+      let random_char_card = this.getRandomInt(this.state.deck.characters.length)
 
 
-      if(this.state.allCards.characters.length > 0){
-          char_card = this.state.allCards.characters[random_char_card];
+      if(this.state.deck.characters.length > 0){
+          char_card = this.state.deck.characters[random_char_card];
       }
 
-      let random_tool_card = this.getRandomInt(this.state.allCards.tools.length)
+      let random_tool_card = this.getRandomInt(this.state.deck.tools.length)
 
-      if(this.state.allCards.tools.length > 0){
-          tool_card = this.state.allCards.tools[random_tool_card];
+      if(this.state.deck.tools.length > 0){
+          tool_card = this.state.deck.tools[random_tool_card];
       }
 
-      let random_places_card = this.getRandomInt(this.state.allCards.places.length)
+      let random_places_card = this.getRandomInt(this.state.deck.places.length)
 
-      if(this.state.allCards.places.length > 0){
-          places_card = this.state.allCards.places[random_places_card];
+      if(this.state.deck.places.length > 0){
+          places_card = this.state.deck.places[random_places_card];
       }
 
       let cards = [char_card,tool_card,places_card].filter(x => x)
@@ -115,7 +115,7 @@ class App extends Component {
 
                   this.state.cards.map((card,index) => (
 
-                      <Card card = { card } modalOpenHandeler = { this.modalOpenHandeler } key = { index } />
+                      <Card card = { card } modalOpenHandeler = { this.modalOpenHandeler } key = { index } selected =  { this.state.selected } />
               ))
               }
 

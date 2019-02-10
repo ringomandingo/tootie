@@ -4,9 +4,7 @@ let Popup = (props) => {
 
 
         return (
-
-
-
+            <div className="info popups">
                 <div className="cardinfocont" data-link="charpop" onClick={props.modalCloseHandeler}>
                     <div className="closepopup bigclose"></div>
                     <div className="cardinfoint">
@@ -14,6 +12,7 @@ let Popup = (props) => {
                         <h1>{props.card.title }</h1>
                         <p>{props.card.content}</p>
                     </div>
+                </div>
                 </div>
         );
 
