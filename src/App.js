@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import Shuffle from './Shuffle';
 import Popup from './Popup';
-import Card from './Card';
+import Cards from './Cards';
+import Loading from './Loading';
 import './App.css';
 
 import CharacterData from './data/characters.json'
 import ToolData from './data/tools.json'
 import PlacesData from './data/places.json'
+
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
 
 class App extends Component {
   constructor(props) {
@@ -28,7 +33,10 @@ class App extends Component {
     };
   }
   componentDidMount() {
-      this.shuffleHandeler()
+      sleep(1500).then(() => {
+          this.shuffleHandeler()
+      })
+
   }
 
     shuffle = (a) => {
@@ -90,6 +98,19 @@ class App extends Component {
           showModal: false
       })
   }
+    cardClickHandeler = (card) => {
+
+    let show = false
+
+        if(this.state.selected == card){
+        show = true;
+        }
+
+      this.setState({
+         selected: card,
+          showModal: show
+      })
+  }
 
 
   render() {
@@ -98,32 +119,31 @@ class App extends Component {
 
       <div className="App">
 
-        <Shuffle shuffleHandeler = { this.shuffleHandeler } />
-
           {(() => {
-              switch (this.state.showModal && this.state.selected !== null) {
-              case true:   return <Popup card = { this.state.selected } />;
-              default:      return null ;
+              switch (this.state.cards.length > 0) {
+              case true:   let props = {
+                  shuffleHandeler:this.shuffleHandeler,
+                  cardClickHandeler: this.cardClickHandeler,
+                  cards: this.state.cards,
+                  selected: this.state.selected ,
+                  showModal: this.state.showModal
+              }
+
+              return         <>
+              <Shuffle shuffleHandeler = { props.shuffleHandeler } />
+
+              {(() => {
+                  switch (props.showModal && props.selected !== null) {
+                  case true:   return <Popup card = { props.selected } />;
+                  default:      return null ;
+                  }
+              })()}
+              <Cards { ...props } />;
+              </>;
+              default: return  <Loading />
               }
           })()}
-
-        <div className="cardwrap">
-
-          <div className="cardrow">
-
-              {
-
-                  this.state.cards.map((card,index) => (
-
-                      <Card card = { card } modalOpenHandeler = { this.modalOpenHandeler } key = { index } selected =  { this.state.selected } />
-              ))
-              }
-
-          </div>
-
-        </div>
-
-      </div>
+ </div>
     );
   }
 }

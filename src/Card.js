@@ -11,7 +11,7 @@ return classes
 let Card = (props) => {
 
         return (
-            <div  className={"card " + props.card.type.toLowerCase() + " " + props.card.title.toLowerCase().replace(/ /g,"_") } onClick={() => props.modalOpenHandeler(props.card)}>
+            <div  className={"card " + props.card.type.toLowerCase() + " " + props.card.title.toLowerCase().replace(/ /g,"_") } onClick={() => props.cardClickHandeler(props.card)}>
 
                     <div className="cardint">
                         <div className="cardfront">
